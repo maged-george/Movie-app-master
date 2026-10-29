@@ -1,59 +1,57 @@
-# MovieApp
+# Movie App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+A movie watch-list web app built with **Angular 19** and **TypeScript**. It loads the movies currently playing in theaters from **The Movie Database (TMDB) API** and shows them as cards.
 
-## Development server
+**Live demo:** https://maged-george.github.io/Movie-app-master/
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
+- Fetches now-playing movies from the TMDB API using Angular `HttpClient` and RxJS
+- Movie cards with poster, title, release date, overview, and vote count
+- 5-star rating converted from the TMDB average score
+- Remove a movie from the watch list with the heart button
+- Responsive layout with Bootstrap 5 and Bootstrap Icons
+- Standalone components and a dedicated service for API calls
+
+## Tech stack
+
+Angular 19 · TypeScript · RxJS · Bootstrap 5 · Bootstrap Icons · TMDB API · GitHub Actions + GitHub Pages
+
+## Run it locally
+
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Get a free API key from [TMDB](https://www.themoviedb.org/settings/api).
+
+3. Copy the example environment file and put your key in it:
+
+   ```bash
+   cp src/environments/environment.example.ts src/environments/environment.ts
+   ```
+
+   `environment.ts` is ignored by git, so your key is never committed.
+
+4. Start the dev server and open http://localhost:4200/:
+
+   ```bash
+   npm start
+   ```
+
+## Deployment
+
+Every push to `main` builds the app and deploys it to GitHub Pages using the workflow in `.github/workflows/deploy.yml`. The TMDB key is read from the repository secret `TMDB_API_KEY`.
+
+## Project structure
+
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+src/app/
+├── components/
+│   └── wish-list/        # Watch-list page with movie cards
+├── service/
+│   └── wishlist.service.ts  # TMDB API calls and data mapping
+└── app.component.ts
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
