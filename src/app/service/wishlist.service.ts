@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class WishlistService {
-  private apiKey = '52d4e897d43981afd6c5910e45d8042e';
+  private apiKey = environment.tmdbApiKey;
   private apiUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${this.apiKey}&language=en-US&page=1`;
 
   constructor(private http: HttpClient) {}
