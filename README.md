@@ -4,6 +4,8 @@ A movie watch-list web app built with **Angular 19** and **TypeScript**. It load
 
 **Live demo:** https://maged-george.github.io/Movie-app-master/
 
+![Movie App screenshot](docs/screenshot.png)
+
 ## Features
 
 - Fetches now-playing movies from the TMDB API using Angular `HttpClient` and RxJS
